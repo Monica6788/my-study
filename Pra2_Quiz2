@@ -1,0 +1,22 @@
+package com.kh.ex1;
+
+public class Quiz2 {
+	public static void main(String[] args) {
+		// 정수형 변수 a, b에 각각 10, 20을 저장
+		int a = 10;
+		int b = 20;
+		System.out.printf("교환 전: a = %d, b = %d \n", a, b);
+		//System.out.println("교환 전: a = " + a + ", b = " + b);
+		
+		// a의 값과 b의 값을 교환
+		int c = a;
+		// a가 가지고 있던 값을 다른 공간에 따로 저장
+		
+		a = b;
+		b = c;
+		System.out.printf("교환 전: a = %d, b = %d \n", a, b);
+		//System.out.println("교환 후: a = " + a + ", b = " + b);
+	}
+
+
+}
