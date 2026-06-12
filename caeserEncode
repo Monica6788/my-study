@@ -23,7 +23,7 @@ public class Quiz3_caeserEncode {
 			char[] codeResult = { (char)code0, (char)code1, (char)code2 };
 			String codeString = new String(codeResult);
 			
-			System.out.println("입력하신 단어의 암호문은" + codeString + "입니다.");
+			System.out.println("입력하신 단어의 암호문은 " + codeString + "입니다.");
 			
 			sc.close();
 
