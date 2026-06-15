@@ -9,7 +9,8 @@ public class D_Ternary {
 		 * (조건식)? true일 때 값 : false일 때 값;
 		 */
 		// method1();
-		method2();
+		//method2();
+		method3();
 	}
 	
 	public static void method1() {
@@ -65,6 +66,32 @@ public class D_Ternary {
 		
 		s.close();
 		
+	}
+	
+	public static void method3() {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("정수 2개를 입력하고 덧뺄셈 중 하나를 입력하세요: ");
+		System.out.print(" : ");
+		
+		int a = s.nextInt();
+		int b = s.nextInt();
+		char chOp = s.next().charAt(0);
+		
+		String result;
+		if (chOp == '+') {
+			result = "" + (a + b);
+		}
+		else if (chOp == '-') {
+			result = "" + (a - b);
+		}
+		else {
+		result = "입력이 잘못되었습니다.";
+		}
+		
+		System.out.printf("%d %c %d = %s\n",  a, chOp, b, result);
+		
+		s.close();
 	}
 
 }
