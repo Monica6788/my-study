@@ -13,11 +13,11 @@ public class Quiz2 {
 		int c = money - price;
 		int tho = c / 1000;
 		int hun = (c - tho * 1000) / 100;
+		// int hun = change % 1000 / 100
 		
 		System.out.println("--- 거스름돈 내역 ---");
 		System.out.printf("천원 지폐: %d장\n", tho);
 		System.out.printf("백원 동전: %d개\n", hun);
-		
 		s.close();
 	}
 	
