@@ -1,0 +1,29 @@
+package com.kh.ex1;
+import java.util.Arrays;
+
+public class Quiz3 {
+
+	public static void main(String[] args) {
+		int[] num = new int[10];
+		for (int i = 0; i < num.length; i++) {
+			num[i] = (int) (Math.random() * 100 + 1);
+		}
+		
+		System.out.println("정렬 전 : " + Arrays.toString(num));
+		
+		for (int j = 0; j < num.length; j++) {
+			for (int i = 0; i < num.length - 1; i++) {
+				while (num[i] > num[i + 1]) {
+					int max = num[i];
+					int min = num[i + 1];
+					num[i] = min;
+					num[i + 1] = max;
+				}
+			}
+		}
+		
+		
+		System.out.println("정렬 후 : " + Arrays.toString(num));
+
+	}
+}
