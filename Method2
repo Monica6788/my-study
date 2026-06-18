@@ -1,0 +1,47 @@
+package com.kh.method;
+
+public class Method2 {
+	/*
+	 * 메소드 오버로딩 (대표적인 면접 질문이라고 하시더라~)
+	 * "하나의 클래스 내에서"
+	 * "같은 이름을 가진 여러 개의 메소드를"
+	 * "매개변수 정보(개수, 타입, 순서)가 다를 때"
+	 * 만들 수 있는 기술
+	 */
+
+	public static void main(String[] args) {
+		System.out.println(add(7, 8));
+		System.out.println(add(7, 0.8));
+		// int를 넣어도 double로 자동 형 변환해서 알아서 계산해줌.
+		System.out.println(add(1, 2, 3));
+	}
+	
+	/** 
+	 * add 메소드
+	 * : 두 정수의 합을 반환하는 메소드
+	 * 전달받는 값 : 2개, int, int int
+	 * 결과값 : 1개 (여러 개일 때는 배열이나 클래스로~)
+	 */
+	public static int add(int n1, int n2) {
+		return n1 + n2;
+	}
+	
+	//public static double add(int n1, int n2) {}
+	// 오버로딩이 적용되지 않은 이유?
+	// 매개변수 정보가 같고 반환형만 다른 것은 오버로딩이 적용되지 않는다.
+	
+	/**
+	 * 
+	 * @param n1
+	 * @param n2
+	 * @return
+	 */
+	public static double add(double n1, double n2) {
+		return n1 + n2;
+	}
+	
+	public static int add(int n1, int n2, int n3) {
+		return n1 + n2 + n3;
+	}
+	
+}
