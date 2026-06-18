@@ -1,0 +1,137 @@
+package com.kh;
+
+public class C_ArrayCopy {
+	//  /** 문서 형식의 주석.
+	// 이거 있으면 바로 아래 있는 메서드에 설명 추가됨. 커서 대보면 나옴.
+	public static void main(String[] args) {
+		//shallowCopy();
+		//deepCopy1();
+		//deepCopy2();
+		deepCopy3();
+	}
+	/**
+	 * 얕은 복사 : 주소값(참조값)만 복사하는 방식
+	 */
+	public static void shallowCopy() {
+		// int[] origin = new int[] {1, 2, 3, 4, 5};
+		int[] origin = {1, 2, 3, 4, 5};
+		System.out.println("==== 원본 배열 출력 ====");
+		
+		//for (int i = 0; i < origin.length; i++) {
+		//	System.out.printf("%d ", origin[i]);
+		//}
+		for (int i : origin) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println("\n==== 사본 배열 출력 ====");
+		
+		// 복사본 배열 선언 => 원본 배열의 자료형
+		int[] copy = origin;
+		
+		// 복사본 배열의 값을 출력
+		//for (int i = 0; i < copy.length; i++) { // origin 길이와 같지만 가독성을 위해 copy.length 사용
+		//	System.out.printf("%d ", copy[i]);
+		//}
+		
+		for (int i : copy) {
+			System.out.printf("%d ", i);
+		}
+		
+		// 복사본 배열의 세 번째 위치 값을 333으로 변경
+		copy[2] = 333;
+
+		System.out.println("\n==== 변경 후 사본 배열 출력 ====");
+		
+		for (int i : copy) {
+			System.out.printf("%d ", i);
+		}
+		
+		System.out.println("\n==== 변경 후 원본 배열 출력 ====");
+
+		for (int i : origin) {
+			System.out.printf("%d ", i);
+		}
+		
+	}
+	/**
+	 * 깊은 복사 : 새로운 배열을 생성하여 원본 배열의 값을 복사하는 방식
+	 */
+	public static void deepCopy1() {
+		int[] origin = {1, 2, 3, 4, 5};
+		
+		// 사본 배열 : 배열 선언 후 원본 배열의 크기만큼 생성
+		
+		int[] copy = new int[origin.length];
+		
+		System.out.println("=== 데이터 복사 전 copy 배열 ===");
+		// for (자료형 변수명 : 배열명) { 변수명 }
+		//		=> 배열의 첫 번째 위치부터 마지막 위치까지 순차적으로 접근.
+		for(int i : copy) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println();
+		
+		System.out.println("=== 데이터 복사 후 copy 배열 ===");
+		// [1] 반복문(for) 사용하여 복사하기
+		//		초기식에 선언한 변수를 인덱스로 활용.		
+		for (int i = 0; i < copy.length; i++) {copy[i] = origin[i];}
+			
+		for(int i : copy) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println();
+		
+		System.out.println("=== origin 데이터 변경 후 두 배열 ===");
+		origin[0] = 512;
+		for(int i : origin) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println();
+		for(int i : copy) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println();
+		
+		System.out.println("=== copy 데이터 변경 후 두 배열 ===");
+		
+		copy[4] = 1024;
+		
+		for(int i : origin) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println();
+		for(int i : copy) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println();
+		
+		
+	}
+	public static void deepCopy2() {
+		// System.arraycopy(원본배열명, 복사를 시작할 인덱스, 사본배열병, 사본 배열의 시작 인덱스, 원본배열크기(즉, 복사할 개수));
+		// (Ctrl + / : 한 줄 주석을 없애거나 만드는 단축키)
+		int[] origin = {999, 2, 3, 4, 5};		
+		int[] copy = new int[origin.length];
+		System.arraycopy(origin, 0, copy, 0, origin.length);
+		// 원본 배열의 첫 번째 위치부터 복사해서 사본 배열의 첫 번째 위치에 원본 배열 크기만큼 데이터 복사
+	
+		System.out.println("=== arraycopy()로 복사 ===");
+		for (int n : copy) {
+			System.out.print(n + " ");
+		}
+		System.out.println();
+		
+		copy = new int[10]; // [0, 0, 0, ... , 0] 10칸
+		// 원본 배열 = [999, 2, 3, 4, 5]
+		// 복사 후 데이터 => [0, 0, 0, 0, 3, 4, 5, 0, 0, 0]
+		
+		System.arraycopy(origin,  2, copy, 4, 3);
+		for (int n : copy) {
+			System.out.print(n + " ");
+		}
+		
+	}
+	public static void deepCopy3() {
+		
+	}
+}
