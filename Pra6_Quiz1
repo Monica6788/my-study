@@ -16,7 +16,7 @@ public class Quiz1 {
 		for (int s = 0; s < score.length; s++) {
 			sum += score[s];
 		}
-		double mean = sum / score.length;
+		double mean = (double)sum / score.length;
 		
 		System.out.println();
 		System.out.println("총합 : " + sum + "점");
