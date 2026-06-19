@@ -1,0 +1,29 @@
+package com.kh.ex1;
+import java.util.Arrays;
+
+public class Quiz4 {
+
+	public static void main(String[] args) {
+		int[] num = new int[10];
+		for (int i = 0; i < num.length; i++) {
+			num[i] = (int) (Math.random() * 100 + 1);
+		}
+		
+		System.out.println("생성된 배열 : " + Arrays.toString(num));
+		
+		int evenCount = 0;
+		int oddCount = 0;
+		
+		for (int i = 0; i <num.length; i++) {
+			if (num[i] % 2 == 0) {
+				evenCount++;
+			}
+			else {
+				oddCount++;
+			}
+		}
+		System.out.printf("짝수의 개수 : %d\n홀수의 개수: %d", evenCount, oddCount);
+
+	}
+
+}
