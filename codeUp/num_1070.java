@@ -1,0 +1,26 @@
+package codeUp;
+import java.util.Scanner;
+
+public class num_1070 {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int month = s.nextInt();
+		String weather;
+		
+		switch(month) {
+			case 3 : case 4 : case 5 : weather = "spring";
+				break;
+			case 6 : case 7 : case 8 : weather = "summer";
+				break;
+			case 9 : case 10 : case 11 : weather = "fall";
+				break;
+			default: weather = "winter";
+		}
+		
+		System.out.println(weather);
+		
+		s.close();
+			
+		}
+		
+}
