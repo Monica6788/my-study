@@ -1,0 +1,32 @@
+package com.kh.ex1;
+
+import java.util.Scanner;
+
+public class Quiz3_caeserDecode {
+	// 복호화 공식: C=(P-k) (mod26)
+		// 이 복호화 코드에서는 k=5
+
+		public static void main(String[] args) {
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.print("복호화 할 단어를 입력하세요(세 글자): ");
+			String code = sc.next();
+			char ch0 = code.charAt(0);
+			char ch1 = code.charAt(1);
+			char ch2 = code.charAt(2);
+			
+			int plain0 = ch0 - 5;
+			int plain1 = ch1 - 5;
+			int plain2 = ch2 - 5;
+			
+			char[] plainResult = { (char)plain0, (char)plain1, (char)plain2 };
+			String plainString = new String(plainResult);
+			
+			System.out.println("입력하신 암호는 " + plainString + "입니다.");
+			
+			sc.close();
+
+		}
+
+
+}
