@@ -1,0 +1,61 @@
+package com.kh;
+
+public class B_While {
+	/*
+	 * while문
+	 * 초기식;
+	 * while (조건식) {
+	 *		// 반복적으로 실행할 내용;
+	 *		// 증감식;
+	 * }
+	 * 
+	 * while문의 특징 : 조건식 검사를 먼저 수행한 후 반복할 내용을 실행
+	 * 처음부터 조건식의 결과가 false이면 실행하지 않음.
+	 * 
+	 * do-while문
+	 * 초기식;
+	 * do {
+	 * 		// 반복적으로 실행할 내용;
+	 * 		// 증감식;
+	 * } while (조건식); // ; 절대절대 까먹지 말기~!!
+	 * 
+	 * do-while문의 특징 : 무조건 한 번 실행한 후, 조건에 따라 반복적으로 수행
+	 * 처음 조건식의 결과가 false라도 최초 1번은 실행 후 반복문 종료
+	 * 
+	 * while문은 보통 횟수가 정해져 있지 않을 때 사용하고 for문은 보통 범위가 정해져 있을 때 사용.
+	 */
+
+	public static void main(String[] args) {
+		// 조건을 만족하는 경우
+		// 3 2 1 출력
+		
+		int n =3;
+		while(n > 0) {
+			System.out.print(n + " ");
+			n--;
+		}
+		System.out.println();
+		
+		int m = 3;
+		do {
+			System.out.print(m + " ");
+			m--;
+		} while(m >0);
+		
+		System.out.println();
+		
+		// 조건식이 처음부터 f일 때의 while문, do-while문
+		
+		int n1 = 10;
+		while (n1 < 5) {
+			System.out.println("while문 동작!");
+		}
+		System.out.println("while문 끝!");
+		do {
+			System.out.println("do-while문 동작!");
+		} while (n1 < 5);
+		System.out.println("do-while문 끝!");
+			
+	}
+	
+}
