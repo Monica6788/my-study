@@ -1,0 +1,97 @@
+package com.kh;
+import java.util.Scanner;
+
+public class D_Ternary {
+
+	public static void main(String[] args) {
+		/*
+		 * 삼항 연산자 (항이 3개인 연산자)
+		 * (조건식)? true일 때 값 : false일 때 값;
+		 */
+		// method1();
+		method2();
+		//method3();
+	}
+	
+	public static void method1() {
+		// 입력한 값이 x 또는 X인 경우 "종료합니다." 출력
+		// 그렇지 않으면 "계속 진행합니다." 출력
+		Scanner s = new Scanner(System.in);
+		System.out.print("아무거나 입력하세요: ");
+		String str = s.next();
+		
+		char ch = str.charAt(0);
+		String result = (ch == 'x' || ch == 'X')? "종료합니다." : "계속 진행합니다.";
+		System.out.println(result);
+		
+		s.close();
+	}
+	
+	public static void method2() {
+		
+		//삼항 연산자 중첩
+		
+		/*
+		 * 사용자에게 두 개의 정수와 + 또는 -를 입력받아 연산 결과를 출력
+		 * 단, + 또는 - 외의 문자가 입력되었을 경우 "입력이 잘못되었습니다." 출력
+		 * 
+		 * 입력 예시 :  10 20 +
+		 * 출력 예시 : 10 + 20 = 30
+		 * 
+		 * 입력 예시2 :  5 10 /
+		 * 출력 예시 2 : 5 / 10 = 입력이 잘못되었습니다.
+		 */
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("정수 2개를 입력하고 덧뺄셈 중 하나를 입력하세요: ");
+		System.out.print(" : ");
+		// 버퍼 :
+		int a = s.nextInt(); // 버퍼 : 10 20 +\n, a = 10
+		// 버퍼 : 20 \n
+		int b = s.nextInt(); // 버퍼 : 20 +\n, b = 20
+		// 버퍼 : +\n
+		char chOp = s.next().charAt(0); // 버퍼 : +\n, chOp = +
+		// 버퍼 : 
+		
+		String result = "" +( (chOp == '+')? a + b :
+							(chOp == '-')? a - b : // chOp가 '+'가 아닌 경우
+								"입력이 잘못되었습니다."); //chOp 값이 '+', '-'가 아닌 경우
+		
+		// result의 자료형이 String이므로 조건식 뒤에 붙는 값들은 전부 String이어야 함.
+		// String으로 만들기 위해 맨 앞에 "" 붙임.
+		// "" 뒤의 +보다 (조건식)? 값1 : 값2; 구문을 먼저 연산하기 위해 구문 통째로 ()로 묶음.
+		
+		System.out.printf("%d %c %d = %s\n",  a, chOp, b, result);
+		
+		s.close();
+		
+	}
+	
+	public static void method3() {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("정수 2개를 입력하고 덧뺄셈 중 하나를 입력하세요: ");
+		System.out.print(" : ");
+		
+		int a = s.nextInt();
+		int b = s.nextInt();
+		char chOp = s.next().charAt(0);
+		
+		String result;
+		if (chOp == '+') {
+			result = "" + (a + b);
+		}
+		else if (chOp == '-') {
+			result = "" + (a - b);
+		}
+		else {
+		result = "입력이 잘못되었습니다.";
+		}
+		
+		System.out.printf("%d %c %d = %s\n",  a, chOp, b, result);
+		
+		s.close();
+	}
+
+}
