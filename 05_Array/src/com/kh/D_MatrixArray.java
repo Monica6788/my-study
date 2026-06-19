@@ -1,0 +1,148 @@
+package com.kh;
+import java.util.Arrays;
+
+public class D_MatrixArray {
+	/*
+	 * 2차원 배열 : 배열 안의 배열.
+	 * 		"같은" 자료형으로 구성된 "1차원 배열의 묶음"
+	 * 
+	 * 2차원 배열은 할당된 공간마다 인덱스 번호를 "2개" 부여
+	 * 		앞의 인덱스는 행의 인덱스 (몇 번쨰 1차원 배열인지)
+	 * 		뒤의 인덱스는 열의 인덱스 (해당 1차원 배열에서 몇 번쨰 위치의 데이터인지)
+	 * 
+	 * 선언
+	 * 자료형[][] 변수명; // 권장
+	 * 자료형 변수명[][]; // 자바에서는 비권장
+	 * 자료형[] 변수명[]; // 되긴 하는데 이건 극혐당할 수 있음ㅋ
+	 * 
+	 * 할당(생성)
+	 * 변수명 = new 자료형[행의 크기][열의 크기];
+	 * 		행의 크기 = 1차원 배열의 개수 (세로 길이)
+	 * 		열의 크기 = 1차원 배열의 크기 (가로 길이) (생략하고 나중에 할당 가능!)
+	 * 		열의 크기 : 가변 길이의 1차원 배열 할당 가능.
+	 * 
+	 * 선언 및 할당
+	 * 자료형[][] 변수명 = new 자료형[행크기][열크기];
+	 * 
+	 * 값 대입
+	 * 변수명[행의 인덱스][열의 인덱스] = 값;
+	 * 		행의 인덱스 : 몇 번째 1차원 배열인지?
+	 * 		열의 인덱스 : 1차원 배열 안에서 몇 번째 값인지?
+	 * 
+	 * 초기화
+	 * 자료형[][] 변수명 = {1차원_배열, 1차원_배열, 1차원_배열, ... };
+	 * 자료형[][] 변수명 = { {값, 값, 값}, {값, 값, 값}, {값, 값, 값}, ... };
+	 * 자료형[][] 변수명 = { new 자료형[크기], new 자료형[크기], ... };
+	 * 		이때 생성된 애들은 다 같은 자료형인 1차원 배열이어야 함.
+	 */
+
+	public static void main(String[] args) {
+		//method1();
+		method2();
+
+	}
+	public static void method1() {
+		// 정수형 2차원 배열 선언
+		int[][] arr;
+		
+		// 크기가 4인 1차원 배열 3묶음으로 할당 (3행 4열)
+		// arr = new int[3][4];
+		arr = new int[3][];
+		
+		// 크기가 4인 1차원 배열 생성
+		// => new int[4];
+		arr[0] = new int[4];
+		// arr[1][0] = 3; 아직 arr[1]에 1차원 배열을 할당하지 않아서 arr[1] = null 상태
+		// null의 [0]을 가리킬 수 없으므로 arr[1][0]은 안됨.
+		// NullPointerExeption인가 그 오류 나옴.
+		
+		// 2차원 배열의 행 크기 : 배열명.length
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = new int[4];
+		}
+		
+		// 2차원 배열의 열 크기 : 배열명[행index].length
+		// 		해당 인덱스 위치의 1차원 배열의 크기
+		
+		// 2차원 배열의 값 출력
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();		
+		}
+		// 값 대입
+		// 초기화 => {} (arr2 배열)
+		int[][] arr2 = {
+				{1, 2, 3, 4},
+				{5, 6, 7, 8},
+				{9, 10, 11, 12}
+				};
+		// arr2 배열에서 7을 출력
+		System.out.println(arr2[1][2]);
+		
+	}
+	public static void method2() {
+		/*
+		 * 아래 문자열 데이터를 저장할 2차원 배열을 선언 및 생성하고 각 위치에 값을 대입해보자
+		 * "(0행 0열)" "(0행 1열)" "(0행 2열)"
+		 * "(1행 0열)" "(1행 1열)" "(1행 2열)"
+		 * "(2행 0열)" "(2행 1열)" "(2행 2열)"
+		 * 
+		 * 체크 사항
+		 * 1) 데이터가 어떤 타입인가? : (자료형) 문자열 -> String
+		 * 2) 몇 개의 행이 필요한가? : (패턴 분석) -> 3행
+		 * 3) 한 행에 몇 개의 데이터를 저장할 것인가? -> 3열
+		 */
+		
+		String[][] arr = new String[3][3];
+		
+		/* arr 배열의 현재 상태
+		 * 		null   null   null
+		 * 		null   null   null
+		 * 		null   null   null
+		 */
+		
+		// 값 대입
+		// [1] 직접 인덱스를 지정하여 대입
+		// arr[0][0] = "(0행 0열)";
+		// arr[0][1] = "(0행 1열)";
+		// arr[0][2] = "(0행 2열)";
+		
+		/* arr 배열의 현재 상태
+		 * 		"(0행 0열)" "(0행 1열)" "(0행 2열)"
+		 * 			null	  null	    null
+		 * 		 	null	  null	    null
+		 */
+		/*for(int i = 0; i<arr[0].length; i++) {
+			arr[0][i] = "(0행 " + i + "열)";
+		}
+		for(int i = 0; i<arr[0].length; i++) {
+			arr[0][i] = "(0행 " + i + "열)";
+		}
+		for(int i = 0; i<arr[0].length; i++) {
+			arr[0][i] = "(0행 " + i + "열)";
+		}
+		*/
+		
+		for(int i = 0; i<arr.length; i++) {
+			for(int j = 0; j < arr[i].length; j++) {
+				arr[i][j] = "(" + i + "행 " + j + "열)";
+			}
+			System.out.println(Arrays.toString(arr[i]));
+		}
+		System.out.println();
+		
+		// 값 출력
+		for(int row = 0; row < arr.length; row++) {
+			for(int j = 0; j < arr[row].length; j++) {
+				System.out.printf("%s ", arr[row][j]);
+			}
+			System.out.println();
+		}
+		
+		
+		
+	}
+
+}
