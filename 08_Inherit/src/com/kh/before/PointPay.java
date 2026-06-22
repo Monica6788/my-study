@@ -1,0 +1,60 @@
+package com.kh.before;
+
+public class PointPay {
+	private String payName;		// 결제명
+	private int payAmount;		// 결제 금액
+	private int myPoint;		// 포인트 점수
+	
+	
+	public PointPay(String payName, int payAmount, int myPoint) {
+		this.payName = payName;
+		this.payAmount = payAmount;
+		this.myPoint = myPoint;
+	}
+
+
+	public String getPayName() {
+		return payName;
+	}
+	public void setPayName(String payName) {
+		this.payName = payName;
+	}
+
+	public int getPayAmount() {
+		return payAmount;
+	}
+	public void setPayAmount(int payAmount) {
+		this.payAmount = payAmount;
+	}
+
+	public int getMyPoint() {
+		return myPoint;
+	}
+	public void setMyPoint(int myPoint) {
+		this.myPoint = myPoint;
+	}
+	
+	/**
+	 * 결제 정보 출력
+	 */
+	public void processPay() {
+		System.out.println(" ===== 포인트 결제 정보 =====");
+		System.out.println("- 결제 금액:" + payAmount);
+		System.out.println("- 내 포인트 잔액:" + myPoint);
+		
+		// 결제 금액 < 포인트 잔액 => "결제 성공" 출력
+		// 결제 금액 > 포인트 잔액 = > "결제 실패(잔액 부족)
+		
+		if (payAmount >= myPoint) {
+			System.out.println("결제 성공");
+		} else {
+			System.out.println("포인트 잔액이 부족합니다.");
+		}
+		/*
+		  System.out.println((payAmount > myPoint? 
+		  				"포인트 잔액이 부족합니다." : "결제 성공"));
+		*/
+	}
+	
+
+}
